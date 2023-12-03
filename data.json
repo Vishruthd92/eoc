@@ -1,0 +1,218 @@
+{
+   "menu": [
+      {
+         "id": 1,
+         "text": "Roles and Responsibilities",
+         "options": [
+            {
+               "id": 101,
+               "text": "Select Employee ID to know your designation.",
+               "suboptions": [
+                   {
+                       "id": 1011,
+                       "text": "E1",
+                       "answer": "CEO"
+                   },
+                   {
+                       "id": 1012,
+                       "text": "E2",
+                       "answer": "Full Stack Developer"
+                   },
+                   {
+                     "id": 1013,
+                     "text": "E3",
+                     "answer": "Tester"
+                 },
+                 {
+                  "id": 1014,
+                  "text": "E4",
+                  "answer": "Project Manager"
+              },
+              {
+               "id": 1015,
+               "text": "E5",
+               "answer": "IT Admin"
+           },
+           {
+            "id": 1016,
+            "text": "E6",
+            "answer": "HR"
+        }
+               ]
+            },
+            {
+               "id": 102,
+               "text": "Select Employee ID to know your work Email.",
+               "suboptions": [
+                  {
+                      "id": 1011,
+                      "text": "E1",
+                      "answer": "steve.jobs@eoc.com"
+                  },
+                  {
+                      "id": 1012,
+                      "text": "E2",
+                      "answer": "dave.sandy@eoc.com"
+                  },
+                  {
+                    "id": 1013,
+                    "text": "E3",
+                    "answer": "harry.potter@eoc.com"
+                },
+                {
+                 "id": 1014,
+                 "text": "E4",
+                 "answer": "john.doe@eoc.com"
+             },
+             {
+              "id": 1015,
+              "text": "E5",
+              "answer": "steve.smith@eoc.com"
+          },
+          {
+           "id": 1016,
+           "text": "E6",
+           "answer": "dua.lipa@eoc.com"
+       }
+              ]
+            }
+         ]
+      },
+      {
+         "id": 2,
+         "text": "Policies",
+         "options": [
+            {
+               "id": 201,
+               "text": "What is the Leave Policy?",
+               "answer": "Click <a href='http://example.com/CEO.pdf' target='_blank'>here</a> to view the leave policy."               
+            },
+            {
+               "id": 202,
+               "text": "What is the WFH Policy?",
+               "answer": "Click <a href='http://example.com/CEO.pdf' target='_blank'>here</a> to view the WFH policy."
+            }
+         ]
+      },
+      {
+         "id": 3,
+         "text": "Projects",
+         "options": [
+            {
+               "id": 301,
+               "text": "Select Employee ID to know your project name.",
+               "suboptions": [
+                   {
+                       "id": 3011,
+                       "text": "E1",
+                       "answer": "Not Applicable"
+                   },
+                   {
+                       "id": 3012,
+                       "text": "E2",
+                       "answer": "Employee Onboarding Chatbot"
+                   },
+                   {
+                     "id": 3013,
+                     "text": "E3",
+                     "answer": "Employee Onboarding Chatbot"
+                 },
+                 {
+                  "id": 3014,
+                  "text": "E4",
+                  "answer": "Employee Onboarding Chatbot"
+              },
+              {
+               "id": 3015,
+               "text": "E5",
+               "answer": "Not Applicable"
+           },
+           {
+            "id": 3016,
+            "text": "E6",
+            "answer": "Not Applicable"
+        }
+               ]
+            },
+            {
+               "id": 302,
+               "text": "What are the list of projects in the company?",
+               "answer":"1. Employee Onboarding ChatBot"
+            },
+            {
+               "id": 303,
+               "text": "Select Employee ID to know your Reporting Manager.",
+               "suboptions": [
+                  {
+                      "id": 3011,
+                      "text": "E1",
+                      "answer": "Not Applicable"
+                  },
+                  {
+                      "id": 3012,
+                      "text": "E2",
+                      "answer": "John Doe"
+                  },
+                  {
+                    "id": 3013,
+                    "text": "E3",
+                    "answer": "John Doe"
+                },
+                {
+                 "id": 3014,
+                 "text": "E4",
+                 "answer": "Steve Jobs"
+             },
+             {
+              "id": 3015,
+              "text": "E5",
+              "answer": "Steve Jobs"
+          },
+          {
+           "id": 3016,
+           "text": "E6",
+           "answer": "Steve Jobs"
+       }
+              ]
+            },
+            {
+               "id": 304,
+               "text": "What is the tech stack used in my project?",
+               "answer":"Frontend: HTML5, Backend: Python"
+            },
+            {
+               "id": 305,
+               "text": "What is the Project Management tool used in my project?",
+               "answer":"Gitlab"
+            }
+         ]
+      },
+      {
+         "id": 4,
+         "text": "Office Information",
+         "options": [
+            {
+               "id": 401,
+               "text": "Where is the office located?",
+               "answer":"123, Main Street, California"
+            },
+            {
+               "id": 402,
+               "text": "What is the office timings?",
+               "answer":"9.30 AM to 6.30 PM"
+            }     
+         ]
+      },
+      {
+         "id": 5,
+         "text": "My Option is not listed here.",
+         "options": [
+            {
+               "id": 501,
+               "text": "My Option is not listed here.",
+               "answer":"Please contact hr.queries@eoc.com for more information."
+            }  
+         ]
+        }
+   ]
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Onboarding Assistant</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+            text-align: center;
+        }
+
+        select, button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        #answerSection {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form id="questionForm">
+            <h2>Employee Onboarding ChatBot</h2>
+            <p>Hi, Please select a category from the below Menu:</p>
+            <select id="menu" name="menu" onchange="loadSubMenu()">
+                {% for main_option in menu %}
+                    <option value="{{ main_option.id }}">{{ main_option.text }}</option>
+                {% endfor %}
+            </select>
+
+            <p>Choose a question:</p>
+            <select id="question" name="question"></select>
+
+            <p>Choose a sub-question:</p>
+            <select id="subOption" name="subOption"></select>
+
+            <button type="button" onclick="getAnswer()">Get Answer</button>
+
+            <div id="answerSection"></div>
+        </form>
+        <div id="answer"></div>
+    </div>
+
+<script>
+    // Function to load submenu options based on the selected menu
+    function loadSubMenu() {
+        var menuId = document.getElementById('menu').value;
+        var menu = {{ menu|tojson|safe }};
+        var submenuOptions = menu.find(menu => menu.id == menuId).options;
+
+        var questionSelect = document.getElementById('question');
+        questionSelect.innerHTML = '';
+
+        // Populate the question dropdown with submenu options
+        submenuOptions.forEach(option => {
+            var optionElement = document.createElement('option');
+            optionElement.value = option.id;
+            optionElement.text = option.text;
+            questionSelect.appendChild(optionElement);
+        });
+
+        // Load suboptions when the page loads
+        loadSubOptions();
+    }
+
+    // Function to load suboptions based on the selected question
+    function loadSubOptions() {
+        var questionId = document.getElementById('question').value;
+        var menu = {{ menu|tojson|safe }};
+        var selectedOption = menu
+            .flatMap(mainOption => mainOption.options || [])
+            .find(option => option.id == questionId);
+
+        var subOptions = selectedOption?.suboptions || [];
+
+        var subOptionSelect = document.getElementById('subOption');
+        subOptionSelect.innerHTML = '';
+
+        // Populate the suboptions dropdown with options
+        subOptions.forEach(option => {
+            var optionElement = document.createElement('option');
+            optionElement.value = option.id;
+            optionElement.text = option.text;
+            subOptionSelect.appendChild(optionElement);
+        });
+    }
+
+    // Function to get the answer for the selected question
+    function getAnswer() {
+        var questionId = document.getElementById('question').value;
+        var formData = new FormData();
+        formData.append('question_id', questionId);
+
+        fetch('/get_answer', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('answer').innerHTML = '<p><strong>Answer:</strong> ' + data.answer + '</p>';
+        });
+    }
+
+    // Load submenu options when the page loads
+    window.onload = function () {
+        loadSubMenu();
+        loadSubOptions();  // Load suboptions on page load
+    };
+
+    // Update suboptions when a different question is selected
+    document.getElementById('question').addEventListener('change', loadSubOptions);
+
+</script>
+
+<!-- Your existing HTML code -->
+
+</body>
+</html>
